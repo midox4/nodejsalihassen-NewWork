@@ -1,0 +1,37 @@
+Deno js  =/ Node js 
+
+Deno js with typescript
+
+
+nodejs with javascript 
+
+Oak framework with typescript =/ express framework with javascript
+
+request = talab 
+response= reponse 
+
+ app.method(PATH, HANDLER)
+        = PARAMETER, PARAMATER
+
+        si tu veut changer nom views du folder to new name folder 
+
+        add this code :     app.set("views", "new name folder")
+///// javascript object :
+const person ={  myname: ali , age:33 }
+                 name : value
+//// javascript window.location 
+
+console.log(location.href)
+
+btn.addEventListener("click", (eo)=>{
+       location.href="http://"
+})
+
+// post : http request method request is used to send data to server 
+
+
+
+
+
+
+
