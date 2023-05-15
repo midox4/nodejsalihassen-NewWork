@@ -10,7 +10,7 @@
     <p style="font-size: 19px; margin: 5em"><%= objArticle.body %></p>
 
     <button
-      data-dl="    <%= objArticle._id %>"
+      datadl="    <%= objArticle._id %>"
       class="create"
     >
       Delete Data
@@ -28,7 +28,7 @@
 
     <script>
       const btn = document.querySelector(".create");
-      const articleId = btn.getAttribute("data-dl");
+      const articleId = btn.getAttribute("datadl");
       console.log(articleId)
       console.log(btn)
       btn.addEventListener("click", (eo) => {

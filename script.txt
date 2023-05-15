@@ -1,0 +1,4 @@
+ "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon --ext js,ejs --ignore public"
+  }

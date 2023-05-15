@@ -3,8 +3,8 @@ require('dotenv').config()
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-
-const port = process.env.port || 5000 ;
+//const helmet = require('helmet')
+const port = 5000 ;
 
 // import from routes 
 const articlesRouter = require('./routes/allArticles')
@@ -17,8 +17,8 @@ app.use(express.static("public"));
 
 // for post request use this 
 app.use(express.urlencoded({ extended: true }));
-
-
+// helmet to secure express app
+//app.use(helmet())
 // for auto refresh
 const path = require("path");
 const livereload = require("livereload");
@@ -35,35 +35,35 @@ liveReloadServer.server.once("connection", () => {
 });
 
 // mongoose
-const connectDB = async ()=>{
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI)
-    console.log(`MONGODB CONNECTED : ${conn.connection.host}`)
+// const connectDB = async ()=>{
+//   try {
+//     const conn = await mongoose.connect(process.env.MONGO_URI)
+//     console.log(`MONGODB CONNECTED : ${conn.connection.host}`)
     
-  } catch (error) {
-    console.log(error)
-    process.exit(1)
+//   } catch (error) {
+//     console.log(error)
+//     process.exit(1)
     
-  }
-}
+//   }
+// }
 
-connectDB().then(()=>{
-  app.listen(port,(req,res)=>{
-    console.log(`listening on port ${port} `)
-  })
-})
-
-// mongoose connection
-// mongoose
-//   .connect("mongodb+srv://hafsi:hafsi@cluster0.cquwfsx.mongodb.net/crudop")
-//   .then((result) => {
-//     app.listen(port, () => {
-//       console.log(` connected to databse mongodb at http://localhost:${port}`);
-//     });
+// connectDB().then(()=>{
+//   app.listen(port,(req,res)=>{
+//     console.log(`listening on port ${port} `)
 //   })
-//   .catch((err) => {
-//     console.log("error to connect to database ");
-//   });
+// })
+
+//mongoose connection
+mongoose
+  .connect("mongodb+srv://hafsi:hafsi@cluster0.cquwfsx.mongodb.net/crudop")
+  .then((result) => {
+    app.listen(port, () => {
+      console.log(` connected to databse mongodb at http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log("error to connect to database ");
+  });
 
   
   app.use("/all-articles",articlesRouter) // routes link yebdew bil allarticles/..
